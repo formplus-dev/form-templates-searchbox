@@ -1,0 +1,66 @@
+$main-font: "Inter", sans-serif;
+
+.filter-box {
+  padding: 10px 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 25vh;
+  padding: 20px 0;
+}
+
+input {
+  padding: 0.375rem 1rem;
+  width: 60%;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #55595c;
+  background-image: none;
+  border: 1px solid #a4a0a0;
+  border-radius: 0.25rem;
+  height: 35px;
+  font-family: $main-font;
+}
+
+.w-20 {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px;
+  & .filter-control {
+    display: block;
+    width: 150px;
+    height: 35px;
+    padding: 0.375rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #3f3f3f;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dedede;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  & .title {
+    font-size: 0.7rem;
+    color: #9d9999;
+  }
+}
+
+.w-20 label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: text;
+  font-size: 60%;
+  color: #9d9999;
+  opacity: 1;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  top: -0.5em;
+  left: 1.5rem;
+  z-index: 3;
+  line-height: 1;
+  padding: 0 1px;
+  background: #fff;
+}

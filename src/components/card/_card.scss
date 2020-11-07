@@ -1,0 +1,40 @@
+$main-font: "Inter", sans-serif;
+.card-item {
+  //   padding: 5px 15px;
+  height: 229px;
+  width: 355px;
+  margin: 20px 0px;
+  border-radius: 2px;
+  box-shadow: 0px 4px 5px -3px rgba(0, 0, 0, 0.8);
+}
+
+.sec-one {
+  background-color: #fff;
+  padding: 10px 15px;
+  height: 85%;
+  & h4 {
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 30px;
+    color: #333447;
+  }
+  & p {
+    color: #3f3e3e;
+    font-size: 1rem;
+    line-height: 17px;
+  }
+}
+
+.sec-two {
+  height: 15%;
+  background: #f9f9f9;
+  padding: 5px 15px;
+  & .card-link {
+    text-decoration: none;
+    color: #08bd37;
+    font-size: 1rem;
+    line-height: 17px;
+  }
+}

@@ -1,0 +1,13 @@
+$main-font: "Inter", sans-serif;
+
+.banner-container {
+  background: #fff4ea;
+  text-align: center;
+  padding: 20px 15px;
+  margin-top: 10px;
+  & span {
+    font-family: $main-font;
+    color: #252525;
+    font-size: 0.8rem;
+  }
+}

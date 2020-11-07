@@ -1,0 +1,39 @@
+$main-font: "Inter", sans-serif;
+
+.App {
+  min-height: 99vh;
+  background-color: #fff;
+}
+
+.w-50 {
+  width: 50%;
+  margin-top: 10px;
+}
+.w-40 {
+  width: 40%;
+  margin-top: 10px;
+}
+.w-30 {
+  width: 30%;
+}
+
+.p-10 {
+  padding: 10px;
+}
+.pr-20 {
+  padding-right: 20px;
+}
+
+.pl-20 {
+  padding-left: 20px;
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+
+button {
+  cursor: pointer;
+}

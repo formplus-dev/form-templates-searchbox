@@ -1,0 +1,19 @@
+$main-font: "Inter", sans-serif;
+
+.card-container {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px 0;
+}
+
+.card-container-title {
+  font-family: $main-font;
+  line-height: 23px;
+  font-size: 18px;
+  color: #333333;
+  letter-spacing: 0em;
+  width: 100%;
+}

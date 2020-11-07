@@ -1,0 +1,31 @@
+$main-font: "Inter", sans-serif;
+
+.pagination-box {
+  padding: 10px 35px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.btn-control {
+  border: none;
+  font-family: $main-font;
+  font-size: 0.9rem;
+  background: none;
+  color: #333333;
+  padding: 0px 10px;
+}
+
+.btn-active {
+  font-family: $main-font;
+  font-size: 0.9rem;
+  padding: 2px 5px;
+  color: #333333;
+}
+.pages {
+  color: #333333;
+  font-family: $main-font;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
