@@ -11,15 +11,16 @@ $main-font: "Inter", sans-serif;
 .btn-control {
   border: none;
   font-family: $main-font;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   background: none;
   color: #333333;
+  font-weight: 500;
   padding: 0px 10px;
 }
 
 .btn-active {
   font-family: $main-font;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   padding: 2px 5px;
   color: #333333;
 }

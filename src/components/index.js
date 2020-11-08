@@ -49,6 +49,7 @@ const TemplatesWrapper = () => {
 
   const [nameOrder, setNameOrder] = useState("Default");
 
+  // Search with name
   const handleNameSearch = (e) => {
     setFilterOptions({
       ...filterOptions,
@@ -70,6 +71,7 @@ const TemplatesWrapper = () => {
     setFilteredTemplates(sortedTemplates);
   }, [filterOptions.templateName, templates]);
 
+  //filter by category
   const handleCategoryChange = (e) => {
     setFilterOptions({
       ...filterOptions,
@@ -78,6 +80,9 @@ const TemplatesWrapper = () => {
       order: "Default",
       date: "Default",
     });
+  };
+
+  useEffect(() => {
     if (filterOptions.templateCategory === "All") {
       setFilteredTemplates(templates);
     } else {
@@ -86,7 +91,10 @@ const TemplatesWrapper = () => {
       );
       setFilteredTemplates(sortedTemplates);
     }
-  };
+    return () => {
+      setFilteredTemplates(templates);
+    };
+  }, [filterOptions.templateCategory, templates]);
 
   // const handleNameOrderChange = (e) => {
   //   setFilterOptions({
@@ -123,26 +131,28 @@ const TemplatesWrapper = () => {
   };
 
   useEffect(() => {
-    if (nameOrder === "Ascending") {
-      setFilteredTemplates((filteredTemplates) =>
-        filteredTemplates.sort((a, b) => {
-          if (a.name > b.name) return 1;
-        })
+    if (nameOrder === "Default") {
+      setFilteredTemplates(templates);
+    } else if (nameOrder === "Ascending") {
+      const sortedTemplates = templates.sort((a, b) =>
+        a.name > b.name ? 1 : null
       );
-      console.log(templates, "Hey");
-      // setFilteredTemplates(sortedTemplates);
+      setFilteredTemplates(sortedTemplates);
     } else if (nameOrder === "Descending") {
-      setFilteredTemplates((filteredTemplates) =>
-        filteredTemplates.sort((a, b) => {
-          if (a.name < b.name) return -1;
-        })
+      const sortedTemplates = templates.sort((a, b) =>
+        a.name < b.name ? -1 : null
       );
-      console.log(templates, "Hi");
+      setFilteredTemplates(sortedTemplates);
     }
-  }, [nameOrder, filteredTemplates]);
+    return () => {
+      setFilteredTemplates(templates);
+    };
+  }, [nameOrder, templates]);
 
+  //page pagination
   const handlePagination = (pageNumber) => setCurrentPage(pageNumber);
 
+  console.log(filteredTemplates, nameOrder);
   return (
     <div className="main">
       <FilterBox
@@ -155,7 +165,7 @@ const TemplatesWrapper = () => {
         nameOrder={nameOrder}
       />
       <Banner />
-      {status === "fetching" ? (
+      {status === "fetching" && filteredTemplates.length < 1 ? (
         <div>Currently fetching ----</div>
       ) : (
         <>

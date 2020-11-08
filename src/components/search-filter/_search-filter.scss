@@ -1,5 +1,39 @@
 $main-font: "Inter", sans-serif;
 
+$bigScreen: 1440px;
+$ipadPro: 1200px;
+$ipad: 992px;
+$mobile: 512px;
+$small: 360px;
+
+@mixin big-screen {
+  @media only screen and (min-width: #{$bigScreen}) {
+    @content;
+  }
+}
+@mixin ipad-pro {
+  @media only screen and (max-width: #{$ipadPro}) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media only screen and (max-width: #{$ipad}) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media only screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin smaller-screen {
+  @media only screen and (max-width: #{$small}) {
+    @content;
+  }
+}
+
 .filter-box {
   padding: 10px 0;
   display: flex;
@@ -32,7 +66,7 @@ input {
     width: 150px;
     height: 35px;
     padding: 0.375rem 1rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1.6;
     color: #3f3f3f;
     background-color: #fff;
@@ -40,6 +74,11 @@ input {
     border: 1px solid #dedede;
     border-radius: 0.25rem;
     cursor: pointer;
+    & option {
+      font-family: $main-font;
+      color: #3f3f3f;
+      font-size: 0.8rem;
+    }
   }
   & .title {
     font-size: 0.7rem;
@@ -52,7 +91,7 @@ input {
   left: 0;
   top: 0;
   cursor: text;
-  font-size: 60%;
+  font-size: 65%;
   color: #9d9999;
   opacity: 1;
   -webkit-transition: all 0.2s;
