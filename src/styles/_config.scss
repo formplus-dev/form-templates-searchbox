@@ -1,18 +1,59 @@
 $main-font: "Inter", sans-serif;
+$bigScreen: 1440px;
+$ipadPro: 1200px;
+$ipad: 992px;
+$mobile: 512px;
+$small: 360px;
+
+@mixin big-screen {
+  @media only screen and (min-width: #{$bigScreen}) {
+    @content;
+  }
+}
+@mixin ipad-pro {
+  @media only screen and (max-width: #{$ipadPro}) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media only screen and (max-width: #{$ipad}) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media only screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin smaller-screen {
+  @media only screen and (max-width: #{$small}) {
+    @content;
+  }
+}
 
 .App {
   min-height: 99vh;
   background-color: #fff;
 }
 
-.w-50 {
-  width: 50%;
+.w-60 {
+  width: 60%;
   margin-top: 10px;
+  @include small-screen() {
+    width: 100%;
+    margin-top: 0;
+  }
 }
 .w-40 {
   width: 40%;
   margin-top: 10px;
+  @include small-screen() {
+    width: 100%;
+  }
 }
+
 .w-30 {
   width: 30%;
 }

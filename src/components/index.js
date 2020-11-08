@@ -6,23 +6,6 @@ import "./_templates.scss";
 import Banner from "./banner";
 import Pagination from "./pagination";
 
-// const templates = [
-//   {
-//     category: ["Health", "E-commerce", "Education"],
-//     created: "2020-11-07T18:58:21.516176",
-//     description: "irure aliqua. Excepteur exercitation consequat.",
-//     link: "https://formpl.us/templates",
-//     name: "exercitation elit, magna",
-//   },
-
-//   {
-//     category: ["Health", "E-commerce", "Education"],
-//     created: "2020-11-07T18:58:21.517950",
-//     description: "irure mollit aliquip pariatur. exercitation",
-//     link: "https://formpl.us/templates",
-//     name: "voluptate fugiat deserunt",
-//   },
-// ];
 const TemplatesWrapper = () => {
   const url =
     "https://front-end-task-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates";
@@ -43,11 +26,9 @@ const TemplatesWrapper = () => {
   const [filterOptions, setFilterOptions] = useState({
     templateName: "",
     templateCategory: "All",
-    order: "Default",
+    nameOrder: "Default",
     date: "Default",
   });
-
-  const [nameOrder, setNameOrder] = useState("Default");
 
   // Search with name
   const handleNameSearch = (e) => {
@@ -55,21 +36,7 @@ const TemplatesWrapper = () => {
       ...filterOptions,
       templateName: e.target.value,
     });
-    if (!filterOptions.templateName) {
-      setFilteredTemplates(templates);
-    }
   };
-
-  useEffect(() => {
-    const sortedTemplates = templates.filter((template) => {
-      return (
-        template.name
-          .toLowerCase()
-          .indexOf(filterOptions.templateName.toLowerCase()) !== -1
-      );
-    });
-    setFilteredTemplates(sortedTemplates);
-  }, [filterOptions.templateName, templates]);
 
   //filter by category
   const handleCategoryChange = (e) => {
@@ -77,92 +44,79 @@ const TemplatesWrapper = () => {
       ...filterOptions,
       templateName: "",
       templateCategory: e.target.value,
-      order: "Default",
+      nameOrder: "Default",
       date: "Default",
     });
   };
 
-  useEffect(() => {
-    if (filterOptions.templateCategory === "All") {
-      setFilteredTemplates(templates);
-    } else {
-      const sortedTemplates = templates.filter((template) =>
-        template.category.includes(filterOptions.templateCategory)
-      );
-      setFilteredTemplates(sortedTemplates);
-    }
-    return () => {
-      setFilteredTemplates(templates);
-    };
-  }, [filterOptions.templateCategory, templates]);
-
-  // const handleNameOrderChange = (e) => {
-  //   setFilterOptions({
-  //     ...filterOptions,
-  //     order: e.target.value,
-  //   });
-  //   if (filterOptions.order === "Default") {
-  //     // setFilteredTemplates(templates);
-  //     return;
-  //   } else if (filterOptions.order === "Ascending") {
-  //     setFilteredTemplates(
-  //       templates.sort((a, b) => {
-  //         console.log(a.name, filterOptions.order);
-  //         if (a.name > b.name) {
-  //           return 1;
-  //         } else {
-  //           return -1;
-  //         }
-  //       })
-  //     );
-  //   } else if (filterOptions.order === "Descending") {
-  //     setFilteredTemplates(
-  //       templates.sort((a, b) => {
-  //         console.log(b.name, filterOptions.order);
-  //         if (b.name > a.name) return -1;
-  //       })
-  //     );
-  //   }
-  //   console.log(filteredTemplates);
-  // };
-
+  //order by name
   const handleNameOrder = (e) => {
-    setNameOrder(e.target.value);
+    setFilterOptions({
+      ...filterOptions,
+      nameOrder: e.target.value,
+    });
+  };
+
+  // order by date created
+
+  const handleDateOrder = (e) => {
+    setFilterOptions({
+      ...filterOptions,
+      date: e.target.value,
+    });
   };
 
   useEffect(() => {
-    if (nameOrder === "Default") {
-      setFilteredTemplates(templates);
-    } else if (nameOrder === "Ascending") {
-      const sortedTemplates = templates.sort((a, b) =>
-        a.name > b.name ? 1 : null
-      );
-      setFilteredTemplates(sortedTemplates);
-    } else if (nameOrder === "Descending") {
-      const sortedTemplates = templates.sort((a, b) =>
-        a.name < b.name ? -1 : null
-      );
-      setFilteredTemplates(sortedTemplates);
+    let sortedTemplates = templates;
+    if (filterOptions.templateName !== "") {
+      sortedTemplates = sortedTemplates.filter((template) => {
+        return (
+          template.name
+            .toLowerCase()
+            .indexOf(filterOptions.templateName.toLowerCase()) !== -1
+        );
+      });
     }
-    return () => {
-      setFilteredTemplates(templates);
-    };
-  }, [nameOrder, templates]);
 
-  //page pagination
+    if (filterOptions.templateCategory !== "All") {
+      sortedTemplates = sortedTemplates.filter((template) =>
+        template.category.includes(filterOptions.templateCategory)
+      );
+    }
+    if (filterOptions.nameOrder === "Ascending") {
+      sortedTemplates = sortedTemplates.sort((a, b) => {
+        return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+      });
+    } else if (filterOptions.nameOrder === "Descending") {
+      sortedTemplates = sortedTemplates.sort((a, b) => {
+        return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+      });
+    }
+    if (filterOptions.date === "Ascending") {
+      sortedTemplates = sortedTemplates.sort((a, b) => {
+        return new Date(a.created).getTime() - new Date(b.created).getTime();
+      });
+    } else if (filterOptions.date === "Descending") {
+      sortedTemplates = sortedTemplates.sort((a, b) => {
+        return new Date(b.created).getTime() - new Date(a.created).getTime();
+      });
+    }
+
+    setFilteredTemplates(sortedTemplates);
+  }, [filterOptions, templates]);
+
+  // handle  pagination
   const handlePagination = (pageNumber) => setCurrentPage(pageNumber);
 
-  console.log(filteredTemplates, nameOrder);
   return (
     <div className="main">
       <FilterBox
         filterOptions={filterOptions}
-        // handleFilterChange={handleFilterChange}
         handleCategoryChange={handleCategoryChange}
         handleNameSearch={handleNameSearch}
-        // handleNameOrderChange={handleNameOrderChange}
+        handleDateOrder={handleDateOrder}
         handleNameOrder={handleNameOrder}
-        nameOrder={nameOrder}
+        nameOrder={filterOptions.nameOrder}
       />
       <Banner />
       {status === "fetching" && filteredTemplates.length < 1 ? (

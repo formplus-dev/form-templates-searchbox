@@ -1,6 +1,45 @@
+$bigScreen: 1440px;
+$ipadPro: 1200px;
+$ipad: 992px;
+$mobile: 512px;
+$small: 360px;
+
+@mixin big-screen {
+  @media only screen and (min-width: #{$bigScreen}) {
+    @content;
+  }
+}
+@mixin large-screen {
+  @media only screen and (max-width: #{$ipadPro}) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media only screen and (max-width: #{$ipad}) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media only screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin smaller-screen {
+  @media only screen and (max-width: #{$small}) {
+    @content;
+  }
+}
 .main {
   padding: 20px 60px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  @include large-screen() {
+    padding: 20px 30px;
+  }
+  @include medium-screen() {
+    padding: 20px;
+  }
 }

@@ -11,7 +11,7 @@ $small: 360px;
     @content;
   }
 }
-@mixin ipad-pro {
+@mixin large-screen {
   @media only screen and (max-width: #{$ipadPro}) {
     @content;
   }
@@ -42,11 +42,29 @@ $small: 360px;
   align-items: flex-start;
   height: 25vh;
   padding: 20px 0;
+
+  @include big-screen() {
+    height: 20vh;
+    padding: 40px 0;
+  }
+
+  @include large-screen() {
+    height: 15vh;
+    padding: 55px 0;
+  }
+
+  @include medium-screen() {
+    border: 2px solid red;
+  }
+  @include small-screen() {
+    padding: 10px;
+    height: 38vh;
+  }
 }
 
 input {
   padding: 0.375rem 1rem;
-  width: 60%;
+  width: 80%;
   font-size: 0.8rem;
   line-height: 1.5;
   color: #55595c;
@@ -55,6 +73,9 @@ input {
   border-radius: 0.25rem;
   height: 35px;
   font-family: $main-font;
+  @include small-screen() {
+    width: 100%;
+  }
 }
 
 .w-20 {
@@ -79,10 +100,28 @@ input {
       color: #3f3f3f;
       font-size: 0.8rem;
     }
+    @include large-screen() {
+      width: 135px;
+    }
+    @include medium-screen() {
+      width: 110px;
+    }
+    @include small-screen() {
+      width: 100%;
+    }
   }
   & .title {
     font-size: 0.7rem;
     color: #9d9999;
+  }
+
+  @include medium-screen() {
+    margin: 0 5px;
+  }
+  @include small-screen() {
+    width: 100%;
+    margin: 5px 0;
+    text-align: left;
   }
 }
 

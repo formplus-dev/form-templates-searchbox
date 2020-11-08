@@ -3,17 +3,16 @@ import { categories, order, date } from "./filter-options";
 const FilterBox = (props) => {
   const {
     filterOptions,
-    handleFilterChange,
+    handleDateOrder,
     handleCategoryChange,
     handleNameSearch,
-    handleNameOrderChange,
     handleNameOrder,
     nameOrder,
   } = props;
 
   return (
     <div className="filter-box">
-      <div className="w-50 ">
+      <div className="w-40 ">
         <label></label>
         <input
           value={filterOptions.templateName}
@@ -22,7 +21,7 @@ const FilterBox = (props) => {
           name="templateName"
         />
       </div>
-      <div className="w-50 align-right">
+      <div className="w-60 align-right">
         <div className="w-20">
           <span className="title">Sort By:</span>
         </div>
@@ -58,9 +57,9 @@ const FilterBox = (props) => {
         </div>
         <div className="w-20">
           <select
-            value={filterOptions.order}
-            onChange={handleNameOrder}
-            name="brand"
+            value={filterOptions.date}
+            onChange={handleDateOrder}
+            name="date"
             className="filter-control"
           >
             {date.map((dateFilter, index) => (
