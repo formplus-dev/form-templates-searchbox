@@ -65,4 +65,8 @@ $small: 360px;
   font-family: $main-font;
   font-size: 0.9rem;
   margin-left: 5px;
+  @include small-screen() {
+    margin-left: 2px;
+    font-size: 0.8rem;
+  }
 }

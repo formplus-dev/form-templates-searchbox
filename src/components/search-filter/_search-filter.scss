@@ -5,6 +5,8 @@ $ipadPro: 1200px;
 $ipad: 992px;
 $mobile: 512px;
 $small: 360px;
+$mid-screen: 414px;
+$mid-height: 896px;
 
 @mixin big-screen {
   @media only screen and (min-width: #{$bigScreen}) {
@@ -19,6 +21,12 @@ $small: 360px;
 
 @mixin medium-screen {
   @media only screen and (max-width: #{$ipad}) {
+    @content;
+  }
+}
+
+@mixin medium-large {
+  @media only screen and(device-width: $mid-screen) and (device-height: 896px) and(-webkit-device-pixel-ratio:2) {
     @content;
   }
 }
@@ -76,6 +84,9 @@ $small: 360px;
     @include medium-screen() {
       right: 80px;
     }
+    @include medium-large() {
+      right: 10px;
+    }
     @include small-screen() {
       right: 10px;
     }
@@ -92,6 +103,9 @@ input {
   border-radius: 0.25rem;
   height: 40px;
   font-family: $main-font;
+  @include medium-large() {
+    width: 100%;
+  }
   @include small-screen() {
     width: 100%;
   }
@@ -124,6 +138,9 @@ input {
     }
     @include medium-screen() {
       width: 110px;
+    }
+    @include medium-large() {
+      width: 100%;
     }
     @include small-screen() {
       width: 100%;

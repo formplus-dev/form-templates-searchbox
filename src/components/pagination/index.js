@@ -18,7 +18,7 @@ const Pagination = (props) => {
       </div>
       <div className="w-30 align-center p-10">
         <button className="btn-active">{currentPage}</button>
-        <span className="pagess"> of {pages}</span>
+        <span className="pages"> of {pages}</span>
       </div>
       <div className="w-30 align-right p-10 pr-20">
         {currentPage < pages ? (

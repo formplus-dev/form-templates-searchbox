@@ -5,6 +5,8 @@ $ipadPro: 1200px;
 $ipad: 992px;
 $mobile: 512px;
 $small: 360px;
+$mid-screen: 414px;
+$mid-height: 896px;
 
 @mixin big-screen {
   @media only screen and (min-width: #{$bigScreen}) {
@@ -13,6 +15,12 @@ $small: 360px;
 }
 @mixin large-screen {
   @media only screen and (max-width: #{$ipadPro}) {
+    @content;
+  }
+}
+
+@mixin medium-large {
+  @media only screen and(device-width: $mid-screen) and (device-height: 896px) and(-webkit-device-pixel-ratio:2) {
     @content;
   }
 }
@@ -45,6 +53,9 @@ $small: 360px;
   }
   @include medium-screen() {
     width: 355px;
+  }
+  @include small-screen() {
+    width: 100%;
   }
   &:hover {
     transform: scale(1.02);
@@ -79,5 +90,11 @@ $small: 360px;
     color: #08bd37;
     font-size: 1rem;
     line-height: 17px;
+  }
+}
+
+@include medium-large() {
+  .card-item {
+    width: 100%;
   }
 }
