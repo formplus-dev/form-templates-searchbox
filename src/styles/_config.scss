@@ -41,6 +41,12 @@ $mid-height: 896px;
   }
 }
 
+@mixin mobile-landscape {
+  @media (orientation: landscape) and (max-width: 768px) {
+    @content;
+  }
+}
+
 .App {
   min-height: 99vh;
   background-color: #fff;
@@ -56,6 +62,9 @@ $mid-height: 896px;
     width: 100%;
     margin-top: 0;
   }
+  @include mobile-landscape() {
+    width: 100%;
+  }
 }
 .w-40 {
   width: 40%;
@@ -64,6 +73,9 @@ $mid-height: 896px;
     width: 100%;
   }
   @include small-screen() {
+    width: 100%;
+  }
+  @include mobile-landscape() {
     width: 100%;
   }
 }
@@ -98,11 +110,4 @@ $mid-height: 896px;
 
 button {
   cursor: pointer;
-}
-
-@media (orientation: landscape) {
-  .w-40,
-  .w-60 {
-    width: 100%;
-  }
 }

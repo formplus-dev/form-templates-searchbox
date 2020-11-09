@@ -43,6 +43,11 @@ $mid-height: 896px;
   }
 }
 
+@mixin mobile-landscape {
+  @media (orientation: landscape) and (max-width: 768px) {
+    @content;
+  }
+}
 .filter-box {
   padding: 10px 0;
   display: flex;
@@ -68,6 +73,9 @@ $mid-height: 896px;
   }
   @include smaller-screen() {
     min-height: 50vh;
+  }
+  @include mobile-landscape() {
+    padding: 20px 0;
   }
 }
 
@@ -111,6 +119,9 @@ input {
   @include small-screen() {
     width: 100%;
   }
+  @include mobile-landscape() {
+    width: 100%;
+  }
 }
 
 .w-20 {
@@ -148,6 +159,9 @@ input {
     @include small-screen() {
       width: 100%;
     }
+    @include mobile-landscape() {
+      width: 100%;
+    }
   }
   & .title {
     font-size: 0.7rem;
@@ -159,12 +173,17 @@ input {
   }
   @include medium-large() {
     margin: 10px 0;
-    text-align: left;
+    text-align: center;
   }
   @include small-screen() {
     width: 100%;
     margin: 10px 0;
-    text-align: left;
+    text-align: center;
+  }
+  @include mobile-landscape() {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
   }
 }
 
@@ -198,19 +217,19 @@ input {
   }
 }
 
-@media (orientation: landscape) {
-  .filter-box {
-    padding: 10px 0;
-  }
-  input,
-  .w-20 {
-    width: 100%;
-  }
-  .filter-control {
-    width: 100% !important;
-  }
-  .w-20 {
-    margin: 10px 0;
-    text-align: left;
-  }
-}
+// @media (orientation: landscape) {
+//   .filter-box {
+//     padding: 10px 0;
+//   }
+//   input,
+//   .w-20 {
+//     // width: 100%;
+//   }
+//   .filter-control {
+//     // width: 100% !important;
+//   }
+//   .w-20 {
+//     // margin: 10px 0;
+//     // text-align: left;
+//   }
+// }

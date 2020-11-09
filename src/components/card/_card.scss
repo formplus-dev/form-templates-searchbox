@@ -41,6 +41,12 @@ $mid-height: 896px;
     @content;
   }
 }
+
+@mixin mobile-landscape {
+  @media (orientation: landscape) and (max-width: 768px) {
+    @content;
+  }
+}
 .card-item {
   height: 229px;
   width: 355px;
@@ -48,6 +54,9 @@ $mid-height: 896px;
   border-radius: 2px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.5s ease-in-out;
+  &:hover {
+    transform: scale(1.02);
+  }
   @include large-screen() {
     width: 400px;
   }
@@ -57,8 +66,9 @@ $mid-height: 896px;
   @include small-screen() {
     width: 100%;
   }
-  &:hover {
-    transform: scale(1.02);
+
+  @include mobile-landscape() {
+    width: 100%;
   }
 }
 
@@ -100,7 +110,9 @@ $mid-height: 896px;
 }
 
 @media (orientation: landscape) {
-  .card-item {
-    width: 100%;
+  @include small-screen() {
+    .card-item {
+      width: 100%;
+    }
   }
 }
