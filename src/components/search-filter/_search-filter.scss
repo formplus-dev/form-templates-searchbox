@@ -7,8 +7,6 @@ $mobile: 512px;
 $small: 360px;
 $mid-screen: 414px;
 $mid-height: 896px;
-$orientation-landscape: "(orientation:landscape)";
-$orientation-portrait: "(orientation:portrait)";
 
 @mixin big-screen {
   @media only screen and (min-width: #{$bigScreen}) {
@@ -16,7 +14,7 @@ $orientation-portrait: "(orientation:portrait)";
   }
 }
 @mixin large-screen {
-  @media only screen and (max-width: #{$ipadPro})  and #{$orientation-portrait} {
+  @media only screen and (max-width: #{$ipadPro}) {
     @content;
   }
 }
@@ -39,11 +37,6 @@ $orientation-portrait: "(orientation:portrait)";
   }
 }
 
-// @mixin small-screen-landscape {
-//   @media only screen and (max-width: 667px) and (height:375px) and  #{$orientation-landscape} {
-//     @content;
-//   }
-// }
 @mixin smaller-screen {
   @media only screen and (max-width: #{$small}) {
     @content;
@@ -65,16 +58,16 @@ $orientation-portrait: "(orientation:portrait)";
   }
 
   @include large-screen() {
-    height: 15vh;
+    min-height: 15vh;
     padding: 55px 0;
   }
 
   @include small-screen() {
     padding: 10px;
-    height: 40vh;
+    min-height: 40vh;
   }
   @include smaller-screen() {
-    height: 50vh;
+    min-height: 50vh;
   }
 }
 
@@ -206,7 +199,18 @@ input {
 }
 
 @media (orientation: landscape) {
-  @include small-screen() {
-    border: 2px solid red;
+  .filter-box {
+    padding: 10px 0;
+  }
+  input,
+  .w-20 {
+    width: 100%;
+  }
+  .filter-control {
+    width: 100% !important;
+  }
+  .w-20 {
+    margin: 10px 0;
+    text-align: left;
   }
 }

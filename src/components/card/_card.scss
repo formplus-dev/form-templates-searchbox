@@ -98,3 +98,9 @@ $mid-height: 896px;
     width: 100%;
   }
 }
+
+@media (orientation: landscape) {
+  .card-item {
+    width: 100%;
+  }
+}

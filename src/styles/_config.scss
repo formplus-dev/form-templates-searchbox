@@ -99,3 +99,10 @@ $mid-height: 896px;
 button {
   cursor: pointer;
 }
+
+@media (orientation: landscape) {
+  .w-40,
+  .w-60 {
+    width: 100%;
+  }
+}
