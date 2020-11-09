@@ -139,6 +139,9 @@ input {
     @include medium-screen() {
       width: 110px;
     }
+    @include medium-large() {
+      width: 100%;
+    }
     @include small-screen() {
       width: 100%;
     }
@@ -150,6 +153,9 @@ input {
 
   @include medium-screen() {
     margin: 0 5px;
+  }
+  @include medium-large() {
+    margin: 10px 0;
   }
   @include small-screen() {
     width: 100%;
