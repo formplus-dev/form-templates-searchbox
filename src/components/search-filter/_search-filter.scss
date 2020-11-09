@@ -53,15 +53,34 @@ $small: 360px;
     padding: 55px 0;
   }
 
-  @include medium-screen() {
-    border: 2px solid red;
-  }
   @include small-screen() {
     padding: 10px;
-    height: 38vh;
+    height: 40vh;
+  }
+  @include smaller-screen() {
+    height: 47vh;
   }
 }
 
+.w-40 {
+  position: relative;
+  & label {
+    color: #9d9999;
+    position: absolute;
+    right: 110px;
+    top: 5px;
+    font-size: 1.5rem;
+    @include big-screen() {
+      right: 120px;
+    }
+    @include medium-screen() {
+      right: 80px;
+    }
+    @include small-screen() {
+      right: 10px;
+    }
+  }
+}
 input {
   padding: 0.375rem 1rem;
   width: 80%;
@@ -71,7 +90,7 @@ input {
   background-image: none;
   border: 1px solid #a4a0a0;
   border-radius: 0.25rem;
-  height: 35px;
+  height: 40px;
   font-family: $main-font;
   @include small-screen() {
     width: 100%;
@@ -85,7 +104,7 @@ input {
   & .filter-control {
     display: block;
     width: 150px;
-    height: 35px;
+    height: 40px;
     padding: 0.375rem 1rem;
     font-size: 0.8rem;
     line-height: 1.6;
@@ -120,7 +139,7 @@ input {
   }
   @include small-screen() {
     width: 100%;
-    margin: 5px 0;
+    margin: 10px 0;
     text-align: left;
   }
 }

@@ -1,7 +1,6 @@
 import "./_card.scss";
 
 const Card = ({ template }) => {
-  // console.log(template);
   return (
     <div className="card-item">
       <div className="sec-one">

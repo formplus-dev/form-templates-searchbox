@@ -42,4 +42,7 @@ $small: 360px;
   @include medium-screen() {
     padding: 20px;
   }
+  @include small-screen() {
+    padding: 10px;
+  }
 }

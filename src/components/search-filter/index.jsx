@@ -13,7 +13,9 @@ const FilterBox = (props) => {
   return (
     <div className="filter-box">
       <div className="w-40 ">
-        <label></label>
+        <label>
+          <i className="fas fa-search"></i>
+        </label>
         <input
           value={filterOptions.templateName}
           onChange={handleNameSearch}

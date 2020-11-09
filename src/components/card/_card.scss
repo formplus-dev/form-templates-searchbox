@@ -1,11 +1,54 @@
 $main-font: "Inter", sans-serif;
+
+$bigScreen: 1440px;
+$ipadPro: 1200px;
+$ipad: 992px;
+$mobile: 512px;
+$small: 360px;
+
+@mixin big-screen {
+  @media only screen and (min-width: #{$bigScreen}) {
+    @content;
+  }
+}
+@mixin large-screen {
+  @media only screen and (max-width: #{$ipadPro}) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media only screen and (max-width: #{$ipad}) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media only screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin smaller-screen {
+  @media only screen and (max-width: #{$small}) {
+    @content;
+  }
+}
 .card-item {
-  //   padding: 5px 15px;
   height: 229px;
   width: 355px;
   margin: 20px 0px;
   border-radius: 2px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease-in-out;
+  @include large-screen() {
+    width: 400px;
+  }
+  @include medium-screen() {
+    width: 355px;
+  }
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 
 .sec-one {

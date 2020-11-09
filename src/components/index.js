@@ -5,6 +5,7 @@ import CardContainer from "./card-container/index";
 import "./_templates.scss";
 import Banner from "./banner";
 import Pagination from "./pagination";
+import Loader from "./loader";
 
 const TemplatesWrapper = () => {
   const url =
@@ -120,7 +121,7 @@ const TemplatesWrapper = () => {
       />
       <Banner />
       {status === "fetching" && filteredTemplates.length < 1 ? (
-        <div>Currently fetching ----</div>
+        <Loader />
       ) : (
         <>
           <CardContainer
@@ -128,6 +129,7 @@ const TemplatesWrapper = () => {
             lastCard={indexOfLastCard}
             firstCard={indexOfFirstCard}
             category={filterOptions.templateCategory}
+            totalTemplates={filteredTemplates.length}
           />
           <Pagination
             cardsPerPage={cardsPerPage}

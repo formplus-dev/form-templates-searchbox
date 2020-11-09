@@ -1,4 +1,37 @@
 $main-font: "Inter", sans-serif;
+$bigScreen: 1440px;
+$ipadPro: 1200px;
+$ipad: 992px;
+$mobile: 512px;
+$small: 360px;
+
+@mixin big-screen {
+  @media only screen and (min-width: #{$bigScreen}) {
+    @content;
+  }
+}
+@mixin large-screen {
+  @media only screen and (max-width: #{$ipadPro}) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media only screen and (max-width: #{$ipad}) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media only screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin smaller-screen {
+  @media only screen and (max-width: #{$small}) {
+    @content;
+  }
+}
 
 .pagination-box {
   padding: 10px 35px;
@@ -6,6 +39,9 @@ $main-font: "Inter", sans-serif;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
+  @include small-screen() {
+    padding: 10px;
+  }
 }
 
 .btn-control {
