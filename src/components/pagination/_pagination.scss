@@ -59,6 +59,10 @@ $small: 360px;
   font-size: 0.8rem;
   padding: 2px 5px;
   color: #333333;
+  @include small-screen() {
+    padding: 2px;
+    font-size: 0.7rem;
+  }
 }
 .pages {
   color: #333333;

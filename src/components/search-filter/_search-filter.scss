@@ -139,9 +139,6 @@ input {
     @include medium-screen() {
       width: 110px;
     }
-    @include medium-large() {
-      width: 100%;
-    }
     @include small-screen() {
       width: 100%;
     }
@@ -177,4 +174,13 @@ input {
   line-height: 1;
   padding: 0 1px;
   background: #fff;
+}
+
+@include medium-large() {
+  .filter-box {
+    height: 40vh;
+  }
+  .w-20 {
+    width: 100%;
+  }
 }

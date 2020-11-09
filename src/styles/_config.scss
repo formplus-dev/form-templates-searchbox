@@ -74,7 +74,11 @@ $mid-height: 896px;
 
 .p-10 {
   padding: 10px;
+  @include small-screen() {
+    padding: 5px;
+  }
 }
+
 .pr-20 {
   padding-right: 20px;
 }
