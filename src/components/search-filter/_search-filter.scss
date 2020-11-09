@@ -84,6 +84,7 @@ $mid-height: 896px;
   }
   @include medium-large-landscape() {
     border: 2px solid red;
+    height: 60vh;
   }
 }
 
