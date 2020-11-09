@@ -107,7 +107,10 @@ const TemplatesWrapper = () => {
   }, [filterOptions, templates]);
 
   // handle  pagination
-  const handlePagination = (pageNumber) => setCurrentPage(pageNumber);
+  const handlePagination = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div className="main">
