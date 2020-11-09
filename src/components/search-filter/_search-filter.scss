@@ -124,7 +124,7 @@ input {
   border-radius: 0.25rem;
   height: 40px;
   font-family: $main-font;
-  -webkit-appearance: none;
+
   @include medium-large() {
     width: 100%;
   }
@@ -152,7 +152,6 @@ input {
     background-image: none;
     border: 1px solid #dedede;
     border-radius: 0.25rem;
-    -webkit-appearance: none;
     cursor: pointer;
     & option {
       font-family: $main-font;

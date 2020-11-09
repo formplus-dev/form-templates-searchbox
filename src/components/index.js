@@ -84,19 +84,18 @@ const TemplatesWrapper = () => {
         template.category.includes(filterOptions.templateCategory)
       );
     }
-    console.log(filterOptions.nameOrder);
+
     if (filterOptions.nameOrder === "Ascending") {
       sortedTemplates = sortedTemplates.sort((a, b) => {
-        const ascendingTemplates = a.name
-          .toLowerCase()
-          .localeCompare(b.name.toLowerCase());
+        const ascendingTemplates = a.name.localeCompare(b.name);
         return ascendingTemplates;
       });
     } else if (filterOptions.nameOrder === "Descending") {
       sortedTemplates = sortedTemplates.sort((a, b) => {
-        return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+        return b.name.localeCompare(a.name);
       });
     }
+    console.log(filterOptions.nameOrder);
     if (filterOptions.date === "Ascending") {
       sortedTemplates = sortedTemplates.sort((a, b) => {
         return new Date(a.created).getTime() - new Date(b.created).getTime();
