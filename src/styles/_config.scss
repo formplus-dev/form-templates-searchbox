@@ -85,6 +85,9 @@ $mid-height: 896px;
 
 .pl-20 {
   padding-left: 20px;
+  @include smaller-screen() {
+    padding-left: 10px;
+  }
 }
 .align-center {
   text-align: center;

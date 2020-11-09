@@ -7,6 +7,8 @@ $mobile: 512px;
 $small: 360px;
 $mid-screen: 414px;
 $mid-height: 896px;
+$orientation-landscape: "(orientation:landscape)";
+$orientation-portrait: "(orientation:portrait)";
 
 @mixin big-screen {
   @media only screen and (min-width: #{$bigScreen}) {
@@ -14,7 +16,7 @@ $mid-height: 896px;
   }
 }
 @mixin large-screen {
-  @media only screen and (max-width: #{$ipadPro}) {
+  @media only screen and (max-width: #{$ipadPro})  and #{$orientation-portrait} {
     @content;
   }
 }
@@ -36,6 +38,12 @@ $mid-height: 896px;
     @content;
   }
 }
+
+// @mixin small-screen-landscape {
+//   @media only screen and (max-width: 667px) and (height:375px) and  #{$orientation-landscape} {
+//     @content;
+//   }
+// }
 @mixin smaller-screen {
   @media only screen and (max-width: #{$small}) {
     @content;
@@ -48,7 +56,7 @@ $mid-height: 896px;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 25vh;
+  min-height: 25vh;
   padding: 20px 0;
 
   @include big-screen() {
@@ -66,7 +74,7 @@ $mid-height: 896px;
     height: 40vh;
   }
   @include smaller-screen() {
-    height: 47vh;
+    height: 50vh;
   }
 }
 
@@ -103,6 +111,7 @@ input {
   border-radius: 0.25rem;
   height: 40px;
   font-family: $main-font;
+  -webkit-appearance: none;
   @include medium-large() {
     width: 100%;
   }
@@ -127,6 +136,7 @@ input {
     background-image: none;
     border: 1px solid #dedede;
     border-radius: 0.25rem;
+    -webkit-appearance: none;
     cursor: pointer;
     & option {
       font-family: $main-font;
@@ -156,6 +166,7 @@ input {
   }
   @include medium-large() {
     margin: 10px 0;
+    text-align: left;
   }
   @include small-screen() {
     width: 100%;
@@ -191,5 +202,11 @@ input {
   }
   .filter-control {
     width: 100%;
+  }
+}
+
+@media (orientation: landscape) {
+  @include small-screen() {
+    border: 2px solid red;
   }
 }

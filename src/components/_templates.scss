@@ -26,6 +26,12 @@ $small: 360px;
     @content;
   }
 }
+
+@mixin small-screen-landscape {
+  @media only screen and (max-width: #{$mobile}) and(orientation:landscape) {
+    @content;
+  }
+}
 @mixin smaller-screen {
   @media only screen and (max-width: #{$small}) {
     @content;
