@@ -58,7 +58,7 @@ $mid-height: 896px;
   padding: 20px 0;
 
   @include big-screen() {
-    height: 20vh;
+    min-height: 20vh;
     padding: 40px 0;
   }
 
@@ -98,6 +98,9 @@ $mid-height: 896px;
     }
     @include small-screen() {
       right: 10px;
+    }
+    @include mobile-landscape() {
+      right: 5px;
     }
   }
 }
