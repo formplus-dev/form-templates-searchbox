@@ -83,8 +83,8 @@ $mid-height: 896px;
     padding: 20px 0;
   }
   @include medium-large-landscape() {
-    border: 2px solid red;
     height: 60vh !important;
+    padding: 15px 0s;
   }
 }
 
