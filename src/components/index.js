@@ -84,9 +84,13 @@ const TemplatesWrapper = () => {
         template.category.includes(filterOptions.templateCategory)
       );
     }
+    console.log(filterOptions.nameOrder);
     if (filterOptions.nameOrder === "Ascending") {
       sortedTemplates = sortedTemplates.sort((a, b) => {
-        return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+        const ascendingTemplates = a.name
+          .toLowerCase()
+          .localeCompare(b.name.toLowerCase());
+        return ascendingTemplates;
       });
     } else if (filterOptions.nameOrder === "Descending") {
       sortedTemplates = sortedTemplates.sort((a, b) => {

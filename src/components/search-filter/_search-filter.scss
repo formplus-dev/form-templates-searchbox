@@ -31,6 +31,11 @@ $mid-height: 896px;
   }
 }
 
+@mixin medium-large-landscape {
+  @media (orientation: landscape) and (device-width: $mid-screen) and (device-height: 896px) and(-webkit-device-pixel-ratio:2) {
+    @content;
+  }
+}
 @mixin small-screen {
   @media only screen and (max-width: #{$mobile}) {
     @content;
@@ -76,6 +81,9 @@ $mid-height: 896px;
   }
   @include mobile-landscape() {
     padding: 20px 0;
+  }
+  @include medium-large-landscape() {
+    border: 2px solid red;
   }
 }
 
