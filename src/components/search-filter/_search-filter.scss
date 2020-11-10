@@ -136,13 +136,28 @@ input {
   }
 }
 
+.filter-box .w-60 {
+  display: flex;
+  justify-content: space-between;
+  @include small-screen() {
+    display: block;
+  }
+  @include medium-large() {
+    display: block;
+  }
+  @include medium-large-landscape() {
+    display: block;
+  }
+  @include mobile-landscape() {
+    display: block;
+  }
+}
 .w-20 {
   display: inline-block;
   position: relative;
-  margin: 0 10px;
   & .filter-control {
     display: block;
-    width: 150px;
+    width: 165px;
     height: 40px;
     padding: 0.375rem 1.3rem;
     font-size: 0.8rem;
@@ -179,9 +194,6 @@ input {
     color: #9d9999;
   }
 
-  @include medium-screen() {
-    margin: 0 5px;
-  }
   @include medium-large() {
     margin: 10px 0;
     text-align: center;
@@ -194,7 +206,7 @@ input {
   @include mobile-landscape() {
     width: 100%;
     text-align: center;
-    margin: 10px 0;
+    margin: 12px 0;
   }
 }
 

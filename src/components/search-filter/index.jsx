@@ -23,7 +23,7 @@ const FilterBox = (props) => {
           name="templateName"
         />
       </div>
-      <div className="w-60 align-right">
+      <div className="w-60">
         <div className="w-20">
           <span className="title">Sort By:</span>
         </div>
