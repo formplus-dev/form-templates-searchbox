@@ -126,7 +126,7 @@ const TemplatesWrapper = () => {
         nameOrder={filterOptions.nameOrder}
       />
       <Banner />
-      {status === "fetching" && filteredTemplates.length < 1 ? (
+      {status === "fetching" || filteredTemplates.length === 0 ? (
         <Loader />
       ) : (
         <>
