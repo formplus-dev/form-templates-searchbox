@@ -54,11 +54,10 @@ $mid-height: 896px;
   }
 }
 .filter-box {
-  padding: 10px 0;
+  padding: 20px 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: flex-start;
   min-height: 25vh;
   padding: 20px 0;
 
@@ -155,6 +154,7 @@ input {
 .w-20 {
   display: inline-block;
   position: relative;
+  margin-left: 5px;
   & .filter-control {
     display: block;
     width: 165px;

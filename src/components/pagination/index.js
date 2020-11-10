@@ -21,15 +21,14 @@ const Pagination = (props) => {
         <span className="pages"> of {pages}</span>
       </div>
       <div className="w-30 align-right p-10 pr-20">
-        {currentPage < pages ? (
+        {currentPage < pages && (
           <button
             onClick={() => paginate(currentPage + 1)}
             className="btn-control"
+            disabled={currentPage === pages ? true : false}
           >
             Next &#62;
           </button>
-        ) : (
-          ""
         )}
       </div>
     </div>
