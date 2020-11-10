@@ -49,6 +49,6 @@ $small: 360px;
     padding: 20px;
   }
   @include small-screen() {
-    padding: 10px;
+    padding: 10px 15px;
   }
 }
