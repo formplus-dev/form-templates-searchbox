@@ -75,6 +75,7 @@ $mid-height: 896px;
   @include small-screen() {
     padding: 10px;
     min-height: 40vh;
+    border: 2px solid red;
   }
   @include smaller-screen() {
     min-height: 50vh;
@@ -84,7 +85,7 @@ $mid-height: 896px;
   }
   @include medium-large-landscape() {
     height: 60vh !important;
-    padding: 15px 0s;
+    padding: 15px 0;
   }
 }
 
@@ -144,7 +145,7 @@ input {
     display: block;
     width: 150px;
     height: 40px;
-    padding: 0.375rem 1rem;
+    padding: 0.375rem 1.3rem;
     font-size: 0.8rem;
     line-height: 1.6;
     color: #3f3f3f;

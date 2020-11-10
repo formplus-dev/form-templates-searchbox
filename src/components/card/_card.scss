@@ -52,10 +52,15 @@ $mid-height: 896px;
   width: 355px;
   margin: 20px 0px;
   border-radius: 2px;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease-in-out;
+  box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  transition: transform 0.5s ease, opacity 0.5s ease-out,
+    box-shadow 0.3s ease-in;
+  cursor: pointer;
   &:hover {
-    transform: scale(1.02);
+    transform: translateX(0) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 15px 35px rgba(0, 0, 0, 0.1),
+      0 100px 100px rgba(50, 50, 93, 0.1);
   }
   @include large-screen() {
     width: 400px;
@@ -79,10 +84,13 @@ $mid-height: 896px;
   & h4 {
     font-family: $main-font;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 1.4rem;
     line-height: 30px;
     color: #333447;
+    &:hover {
+      color: #4cb2d4;
+    }
   }
   & p {
     color: #3f3e3e;
@@ -100,6 +108,9 @@ $mid-height: 896px;
     color: #08bd37;
     font-size: 1rem;
     line-height: 17px;
+    &:hover {
+      color: #4cb2d4;
+    }
   }
 }
 

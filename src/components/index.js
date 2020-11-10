@@ -86,12 +86,12 @@ const TemplatesWrapper = () => {
     }
 
     if (filterOptions.nameOrder === "Ascending") {
-      sortedTemplates = sortedTemplates.sort((a, b) => {
+      sortedTemplates.sort((a, b) => {
         const ascendingTemplates = a.name.localeCompare(b.name);
         return ascendingTemplates;
       });
     } else if (filterOptions.nameOrder === "Descending") {
-      sortedTemplates = sortedTemplates.sort((a, b) => {
+      sortedTemplates.sort((a, b) => {
         return b.name.localeCompare(a.name);
       });
     }
