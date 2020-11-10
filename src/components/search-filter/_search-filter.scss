@@ -73,9 +73,8 @@ $mid-height: 896px;
   }
 
   @include small-screen() {
-    padding: 10px;
+    padding: 10px 0;
     min-height: 40vh;
-    border: 2px solid red;
   }
   @include smaller-screen() {
     min-height: 50vh;
@@ -189,7 +188,7 @@ input {
   }
   @include small-screen() {
     width: 100%;
-    margin: 10px 0;
+    margin: 12px 0;
     text-align: center;
   }
   @include mobile-landscape() {
