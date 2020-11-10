@@ -87,8 +87,7 @@ const TemplatesWrapper = () => {
 
     if (filterOptions.nameOrder === "Ascending") {
       sortedTemplates.sort((a, b) => {
-        const ascendingTemplates = a.name.localeCompare(b.name);
-        return ascendingTemplates;
+        return a.name.localeCompare(b.name);
       });
     } else if (filterOptions.nameOrder === "Descending") {
       sortedTemplates.sort((a, b) => {

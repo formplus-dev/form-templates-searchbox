@@ -12,7 +12,7 @@ const Pagination = (props) => {
             disabled={currentPage === 1 ? true : false}
             className="btn-control"
           >
-            Previous
+            &#x3C;Previous
           </button>
         )}
       </div>
