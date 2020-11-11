@@ -114,45 +114,6 @@ const TemplatesWrapper = () => {
     window.scrollTo(0, 0);
   };
 
-  // let filTemplates = [...templates];
-
-  // if (filterOptions.templateName !== "") {
-  //   filTemplates = templates.filter((template) => {
-  //     return (
-  //       template.name
-  //         .toLowerCase()
-  //         .indexOf(filterOptions.templateName.toLowerCase()) !== -1
-  //     );
-  //   });
-  // }
-
-  // if (filterOptions.templateCategory !== "All") {
-  //   filTemplates = filTemplates.filter((template) =>
-  //     template.category.includes(filterOptions.templateCategory)
-  //   );
-  // }
-
-  // if (filterOptions.nameOrder === "Ascending") {
-  //   filTemplates.sort((a, b) => {
-  //     return a.name.localeCompare(b.name);
-  //   });
-  // }
-  // if (filterOptions.nameOrder === "Descending") {
-  //   filTemplates.sort((a, b) => {
-  //     return b.name.localeCompare(a.name);
-  //   });
-  // }
-
-  // if (filterOptions.date === "Ascending") {
-  //   filTemplates = filTemplates.sort((a, b) => {
-  //     return new Date(a.created).getTime() - new Date(b.created).getTime();
-  //   });
-  // } else if (filterOptions.date === "Descending") {
-  //   filTemplates = filTemplates.sort((a, b) => {
-  //     return new Date(b.created).getTime() - new Date(a.created).getTime();
-  //   });
-  // }
-
   return (
     <div className="main">
       <FilterBox
