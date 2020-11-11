@@ -1,0 +1,12 @@
+$main-font: "Inter", sans-serif;
+
+.error-box {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.error-box p {
+  font-family: $main-font;
+  color: #333447;
+  font-size: 0.9rem;
+}

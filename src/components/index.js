@@ -6,12 +6,13 @@ import "./_templates.scss";
 import Banner from "./banner";
 import Pagination from "./pagination";
 import Loader from "./loader";
+import ErrorBox from "./error";
+
+const url =
+  "https://front-end-task-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates";
 
 const TemplatesWrapper = () => {
-  const url =
-    "https://front-end-task-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates";
-
-  const { status, templates } = useFetch(url);
+  const { status, templates, error } = useFetch(url);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredTemplates, setFilteredTemplates] = useState([]);
@@ -84,7 +85,6 @@ const TemplatesWrapper = () => {
         template.category.includes(filterOptions.templateCategory)
       );
     }
-
     if (filterOptions.nameOrder === "Ascending") {
       sortedTemplates.sort((a, b) => {
         return a.name.localeCompare(b.name);
@@ -94,7 +94,6 @@ const TemplatesWrapper = () => {
         return b.name.localeCompare(a.name);
       });
     }
-    console.log(filterOptions.nameOrder);
     if (filterOptions.date === "Ascending") {
       sortedTemplates = sortedTemplates.sort((a, b) => {
         return new Date(a.created).getTime() - new Date(b.created).getTime();
@@ -104,7 +103,8 @@ const TemplatesWrapper = () => {
         return new Date(b.created).getTime() - new Date(a.created).getTime();
       });
     }
-
+    // console.log(sortedTemplates);
+    // console.log(filteredTemplates);
     setFilteredTemplates(sortedTemplates);
   }, [filterOptions, templates]);
 
@@ -114,6 +114,7 @@ const TemplatesWrapper = () => {
     window.scrollTo(0, 0);
   };
 
+  console.log(error, status);
   return (
     <div className="main">
       <FilterBox
@@ -125,8 +126,10 @@ const TemplatesWrapper = () => {
         nameOrder={filterOptions.nameOrder}
       />
       <Banner />
-      {status === "fetching" || filteredTemplates.length === 0 ? (
+      {status === "fetching" ? (
         <Loader />
+      ) : status === "error" ? (
+        <ErrorBox error={error} />
       ) : (
         <>
           <CardContainer
