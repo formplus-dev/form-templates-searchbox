@@ -4,7 +4,9 @@ const ErrorBox = (props) => {
   const { error } = props;
   return (
     <div className="error-box">
-      <p>{error}. Please refresh your browser</p>
+      <p>
+        {error}. <b>Please refresh your browser</b>
+      </p>
     </div>
   );
 };
