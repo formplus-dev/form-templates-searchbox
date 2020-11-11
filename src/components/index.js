@@ -21,10 +21,6 @@ const TemplatesWrapper = () => {
 
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
 
-  useEffect(() => {
-    setFilteredTemplates(templates);
-  }, [templates]);
-
   const [filterOptions, setFilterOptions] = useState({
     templateName: "",
     templateCategory: "All",
