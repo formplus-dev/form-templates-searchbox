@@ -69,7 +69,8 @@ const TemplatesWrapper = () => {
   };
 
   useEffect(() => {
-    let sortedTemplates = templates;
+    let sortedTemplates = [...templates];
+
     if (filterOptions.templateName !== "") {
       sortedTemplates = sortedTemplates.filter((template) => {
         return (
@@ -103,8 +104,7 @@ const TemplatesWrapper = () => {
         return new Date(b.created).getTime() - new Date(a.created).getTime();
       });
     }
-    // console.log(sortedTemplates);
-    // console.log(filteredTemplates);
+
     setFilteredTemplates(sortedTemplates);
   }, [filterOptions, templates]);
 
@@ -114,7 +114,45 @@ const TemplatesWrapper = () => {
     window.scrollTo(0, 0);
   };
 
-  console.log(error, status);
+  // let filTemplates = [...templates];
+
+  // if (filterOptions.templateName !== "") {
+  //   filTemplates = templates.filter((template) => {
+  //     return (
+  //       template.name
+  //         .toLowerCase()
+  //         .indexOf(filterOptions.templateName.toLowerCase()) !== -1
+  //     );
+  //   });
+  // }
+
+  // if (filterOptions.templateCategory !== "All") {
+  //   filTemplates = filTemplates.filter((template) =>
+  //     template.category.includes(filterOptions.templateCategory)
+  //   );
+  // }
+
+  // if (filterOptions.nameOrder === "Ascending") {
+  //   filTemplates.sort((a, b) => {
+  //     return a.name.localeCompare(b.name);
+  //   });
+  // }
+  // if (filterOptions.nameOrder === "Descending") {
+  //   filTemplates.sort((a, b) => {
+  //     return b.name.localeCompare(a.name);
+  //   });
+  // }
+
+  // if (filterOptions.date === "Ascending") {
+  //   filTemplates = filTemplates.sort((a, b) => {
+  //     return new Date(a.created).getTime() - new Date(b.created).getTime();
+  //   });
+  // } else if (filterOptions.date === "Descending") {
+  //   filTemplates = filTemplates.sort((a, b) => {
+  //     return new Date(b.created).getTime() - new Date(a.created).getTime();
+  //   });
+  // }
+
   return (
     <div className="main">
       <FilterBox
