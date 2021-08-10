@@ -90,7 +90,7 @@ const DUMMY_DATA = [
       "created": "2021-08-10T10:44:12.730880", 
       "description": "consectetur ullamco culpa commodo veniam,", 
       "link": "https://formpl.us/templates", 
-      "name": "fugiat aliqua. occaecat"
+      "name": "Placeholder Template 1"
   }, 
   {
       "category": [
@@ -100,7 +100,7 @@ const DUMMY_DATA = [
       "created": "2021-08-10T10:44:12.382082", 
       "description": "fugiat velit proident, cupidatat tempor", 
       "link": "https://formpl.us/templates", 
-      "name": "minim nulla"
+      "name": "Placeholder Template 2"
   }, 
   {
       "category": [
@@ -111,7 +111,7 @@ const DUMMY_DATA = [
       "created": "2021-08-10T10:44:12.938170", 
       "description": "incididunt Lorem mollit cillum nulla", 
       "link": "https://formpl.us/templates", 
-      "name": "aliqua. minim commodo"
+      "name": "Placeholder Template 3"
   }, 
   {
       "category": [
@@ -122,7 +122,7 @@ const DUMMY_DATA = [
       "created": "2021-08-10T10:44:12.757134", 
       "description": "veniam, laborum. cupidatat irure cillum", 
       "link": "https://formpl.us/templates", 
-      "name": "magna elit, commodo"
+      "name": "Placeholder Template 4"
   }, 
   {
       "category": [
@@ -133,7 +133,7 @@ const DUMMY_DATA = [
       "created": "2021-08-10T10:44:12.708762", 
       "description": "culpa laborum. deserunt consectetur commodo", 
       "link": "https://formpl.us/templates", 
-      "name": "aliqua. amet, voluptate"
+      "name": "Placeholder Template 5"
   },
 ]
 
