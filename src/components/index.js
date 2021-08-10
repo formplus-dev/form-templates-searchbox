@@ -8,8 +8,7 @@ import Pagination from "./pagination";
 import Loader from "./loader";
 import ErrorBox from "./error";
 
-const url =
-  "https://front-end-task-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates";
+const url = null // Replace with custom backend endpoint
 
 const TemplatesWrapper = () => {
   const { status, templates, error } = useFetch(url);
@@ -67,39 +66,45 @@ const TemplatesWrapper = () => {
   useEffect(() => {
     let sortedTemplates = [...templates];
 
-    if (filterOptions.templateName !== "") {
-      sortedTemplates = sortedTemplates.filter((template) => {
-        return (
-          template.name
-            .toLowerCase()
-            .indexOf(filterOptions.templateName.toLowerCase()) !== -1
-        );
-      });
-    }
+    /**
+     * Replace this block of commented code with the backend logic
+     * You can also uncomment it to get a feel of how the searching and sorting logic should work
+    */
+     
+    // if (filterOptions.templateName !== "") {
+    //   sortedTemplates = sortedTemplates.filter((template) => {
+    //     return (
+    //       template.name
+    //         .toLowerCase()
+    //         .indexOf(filterOptions.templateName.toLowerCase()) !== -1
+    //     );
+    //   });
+    // }
 
-    if (filterOptions.templateCategory !== "All") {
-      sortedTemplates = sortedTemplates.filter((template) =>
-        template.category.includes(filterOptions.templateCategory)
-      );
-    }
-    if (filterOptions.nameOrder === "Ascending") {
-      sortedTemplates.sort((a, b) => {
-        return a.name.localeCompare(b.name);
-      });
-    } else if (filterOptions.nameOrder === "Descending") {
-      sortedTemplates.sort((a, b) => {
-        return b.name.localeCompare(a.name);
-      });
-    }
-    if (filterOptions.date === "Ascending") {
-      sortedTemplates = sortedTemplates.sort((a, b) => {
-        return new Date(a.created).getTime() - new Date(b.created).getTime();
-      });
-    } else if (filterOptions.date === "Descending") {
-      sortedTemplates = sortedTemplates.sort((a, b) => {
-        return new Date(b.created).getTime() - new Date(a.created).getTime();
-      });
-    }
+    // if (filterOptions.templateCategory !== "All") {
+    //   sortedTemplates = sortedTemplates.filter((template) =>
+    //     template.category.includes(filterOptions.templateCategory)
+    //   );
+    // }
+    // if (filterOptions.nameOrder === "Ascending") {
+    //   sortedTemplates.sort((a, b) => {
+    //     return a.name.localeCompare(b.name);
+    //   });
+    // } else if (filterOptions.nameOrder === "Descending") {
+    //   sortedTemplates.sort((a, b) => {
+    //     return b.name.localeCompare(a.name);
+    //   });
+    // }
+    // if (filterOptions.date === "Ascending") {
+    //   sortedTemplates = sortedTemplates.sort((a, b) => {
+    //     return new Date(a.created).getTime() - new Date(b.created).getTime();
+    //   });
+    // } else if (filterOptions.date === "Descending") {
+    //   sortedTemplates = sortedTemplates.sort((a, b) => {
+    //     return new Date(b.created).getTime() - new Date(a.created).getTime();
+    //   });
+    // }
+
 
     setFilteredTemplates(sortedTemplates);
   }, [filterOptions, templates]);
