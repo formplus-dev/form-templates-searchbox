@@ -135,6 +135,25 @@ const DUMMY_DATA = [
       "link": "https://formpl.us/templates", 
       "name": "Placeholder Template 5"
   },
+  {
+    "category": [
+        "Health", 
+    ], 
+    "created": "2021-07-10T10:44:12.708762", 
+    "description": "culpa laborum. deser", 
+    "link": "https://formpl.us/templates", 
+    "name": "Placeholder Template 6"
+},
+{
+  "category": [
+      "E-commerce", 
+  ], 
+  "created": "2021-08-12T10:44:12.708762", 
+  "description": "culpa consectetur commodo", 
+  "link": "https://formpl.us/templates", 
+  "name": "Placeholder Template 7"
+},
+
 ]
 
 export { useFetch };
